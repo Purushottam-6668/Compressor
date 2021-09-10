@@ -286,10 +286,10 @@ async def encod(event):
         await event.client.send_message(
             event.chat_id,
             f"ᎠᏫᎳNᏞᏫᎠᏆNᏀ ᏟᏫᎷᏢᏞᎬᎢᎬᎠ!!"
-            buttons=[
+              buttons=[
                 [
-                    Button.inline("⌜ Ꮐᴇnᴇrᴀᴛᴇ Ꮪᴀʍᴩlᴇ ⌟", data=f"gsmpl{key}"),
-                    Button.inline("⌜ Ꮪᴄrᴇᴇnshᴏᴛs ⌟", data=f"sshot{key}"),
+                    [Button.inline("⌜ Ꮐᴇnᴇrᴀᴛᴇ Ꮪᴀʍᴩlᴇ ⌟", data=f"gsmpl{key}")],
+                    [Button.inline("⌜ Ꮪᴄrᴇᴇnshᴏᴛs ⌟", data=f"sshot{key}")],
                 ],
                 [Button.url("⌜ Ꮇᴇdiᴀinfᴏ ⌟", url=inf)],
                 [Button.inline("⌜ Ꮯᴏʍᴩrᴇss? ⌟", data=f"sencc{key}")],
