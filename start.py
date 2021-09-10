@@ -1,5 +1,4 @@
-
-
+# By @Purushottam-6668
 
 from helper._get import *
 
@@ -10,7 +9,7 @@ LOGS.info("Starting...")
 
 
 try:
-    cbot = TelegramClient("bot", APP_ID, API_HASH).start(bot_token=BOT_TOKEN)
+    Purushottam-6668 = TelegramClient("bot", APP_ID, API_HASH).start(bot_token=BOT_TOKEN)
 except Exception as e:
     LOGS.info("Environment vars are missing! Kindly recheck.")
     LOGS.info("Bot is quiting...")
@@ -21,17 +20,17 @@ except Exception as e:
 ####### GENERAL CMDS ########
 
 
-@cbot.on(events.NewMessage(pattern="/start"))
+@Purushottam-6668.on(events.NewMessage(pattern="/start"))
 async def _(e):
     await start(e)
 
 
-@cbot.on(events.NewMessage(pattern="/ping"))
+@Purushottam-6668.on(events.NewMessage(pattern="/ping"))
 async def _(e):
     await up(e)
 
 
-@cbot.on(events.NewMessage(pattern="/help"))
+@Purushottam-6668.on(events.NewMessage(pattern="/help"))
 async def _(e):
     await help(e)
 
@@ -39,52 +38,52 @@ async def _(e):
 ######## Callbacks #########
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sshot(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"sshot(.*)")))
 async def _(e):
     await screenshot(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gsmpl(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"gsmpl(.*)")))
 async def _(e):
     await sample(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"skip(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"skip(.*)")))
 async def _(e):
     await skip(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats(.*)")))
 async def _(e):
     await stats(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"encc(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"encc(.*)")))
 async def _(e):
     await encc(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sencc(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"sencc(.*)")))
 async def _(e):
     await sencc(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ccom(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"ccom(.*)")))
 async def _(e):
     await ccom(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back(.*)")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile(b"back(.*)")))
 async def _(e):
     await back(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile("ihelp")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile("ihelp")))
 async def _(e):
     await ihelp(e)
 
 
-@cbot.on(events.callbackquery.CallbackQuery(data=re.compile("beck")))
+@Purushottam-6668.on(events.callbackquery.CallbackQuery(data=re.compile("beck")))
 async def _(e):
     await beck(e)
 
@@ -92,12 +91,12 @@ async def _(e):
 ########## Direct ###########
 
 
-@cbot.on(events.NewMessage(pattern="/eval"))
+@Purushottam-6668.on(events.NewMessage(pattern="/eval"))
 async def _(e):
     await eval(e)
 
 
-@cbot.on(events.NewMessage(pattern="/bash"))
+@Purushottam-6668.on(events.NewMessage(pattern="/bash"))
 async def _(e):
     await bash(e)
 
@@ -105,7 +104,7 @@ async def _(e):
 ########## AUTO ###########
 
 
-@cbot.on(events.NewMessage(incoming=True))
+@Purushottam-6668.on(events.NewMessage(incoming=True))
 async def _(e):
     await encod(e)
 
@@ -113,4 +112,4 @@ async def _(e):
 ########### Start ############
 
 LOGS.info("Chalu Hogya Bhosdike😁")
-cbot.run_until_disconnected()
+Purushottam-6668.run_until_disconnected()
