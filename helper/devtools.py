@@ -1,6 +1,3 @@
-# By @Purushottam-6668
-
-
 from .stuff import *
 
 
