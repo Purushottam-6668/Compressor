@@ -63,7 +63,7 @@ async def encc(e):
         nn = await e.edit(
             "`Ꮯᴏʍᴩrᴇssing...`",
             buttons=[
-                [Button.inline(⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
+                [Button.inline("⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
                 [Button.inline("⌜ ᏟᎪNᏟᎬᏞ ᏢᏒᏫᏟᎬᏚᏚ ⌟", data=f"skip{wah}")],
             ],
         )
@@ -133,7 +133,7 @@ async def sample(e):
     xxx = await e.edit(
         "`Generating Sample...`",
         buttons=[
-            [Button.inline(⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
+            [Button.inline("⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
             [Button.inline("⌜ ᏟᎪNᏟᎬᏞ ᏢᏒᏫᏟᎬᏚᏚ ⌟", data=f"skip{wah}")],
         ],
     )
@@ -309,7 +309,7 @@ async def customenc(e, key):
     nn = await e.edit(
         "`Ꮯᴏʍᴩrᴇssing...`",
         buttons=[
-            [Button.inline(⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
+            [Button.inline("⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
             [Button.inline("⌜ ᏟᎪNᏟᎬᏞ ᏢᏒᏫᏟᎬᏚᏚ ⌟", data=f"skip{wah}")],
         ],
     )
