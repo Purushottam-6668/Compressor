@@ -1,25 +1,13 @@
-#    This file is part of the CompressorBot distribution.
-#    Copyright (c) 2021 Danish_00
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, version 3.
-#
-#    This program is distributed in the hope that it will be useful, but
-#    WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#    General Public License for more details.
-#
-#    License can be found in < https://github.com/1Danish-00/CompressorBot/blob/main/License> .
+# By @Purushottam-6668
 
 
 from .funcn import *
 from .FastTelethon import download_file, upload_file
 
 async def screenshot(e):
-    await e.edit("`Generating Screenshots...`")
+    await e.edit("`Ꮐᴇnᴇrᴀᴛing Ꮪᴄrᴇᴇnshᴏᴛs...`")
     COUNT.append(e.chat_id)
-    wah = e.pattern_match.group(1).decode("UTF-8")
+    wah = e.pattern_match.group(1).decode("ᏌᎢᎰ - ８")
     key = decode(wah)
     out, dl, thum, dtime = key.split(";")
     os.mkdir(wah)
@@ -35,13 +23,13 @@ async def screenshot(e):
         await e.client.send_file(e.chat_id, pic)
         await e.client.send_message(
             e.chat_id,
-            "Check Screenshots Above 😁",
+            "Ꮯhᴇᴄᴋ Ꮪᴄrᴇᴇnshᴏᴛs Ꭺʙᴏvᴇ 😁",
             buttons=[
                 [
-                    Button.inline("GENERATE SAMPLE", data=f"gsmpl{wah}"),
-                    Button.inline("COMPRESS", data=f"sencc{wah}"),
+                    Button.inline("⌜ Ꮐᴇnᴇrᴀᴛᴇ Ꮪᴀʍᴩlᴇ ⌟", data=f"gsmpl{wah}"),
+                    Button.inline("⌜ Ꮯᴏʍᴩrᴇss? ⌟", data=f"sencc{wah}"),
                 ],
-                [Button.inline("SKIP", data=f"skip{wah}")],
+                [Button.inline("⌜ Ꮪᴋiᴩ ⌟", data=f"skip{wah}")],
             ],
         )
         COUNT.remove(e.chat_id)
@@ -54,7 +42,7 @@ async def screenshot(e):
 
 async def stats(e):
     try:
-        wah = e.pattern_match.group(1).decode("UTF-8")
+        wah = e.pattern_match.group(1).decode("ᏌᎢᎰ - ８")
         wh = decode(wah)
         out, dl, thum, dtime = wh.split(";")
         ot = hbs(int(Path(out).stat().st_size))
@@ -62,21 +50,21 @@ async def stats(e):
         ans = f"Downloaded:\n{ov}\n\nCompressing:\n{ot}"
         await e.answer(ans, cache_time=0, alert=True)
     except BaseException:
-        await e.answer("Someting Went Wrong 🤔\nResend Media", cache_time=0, alert=True)
+        await e.answer("Ꮪᴏʍᴇᴛing Ꮃᴇnᴛ Ꮃrᴏng 🤔\nᏒᴇsᴇnd Ꮇᴇdiᴀ ", cache_time=0, alert=True)
 
 
 async def encc(e):
     try:
         es = dt.now()
         COUNT.append(e.chat_id)
-        wah = e.pattern_match.group(1).decode("UTF-8")
+        wah = e.pattern_match.group(1).decode("ᏌᎢᎰ - ８")
         wh = decode(wah)
         out, dl, thum, dtime = wh.split(";")
         nn = await e.edit(
-            "`Compressing..`",
+            "`Ꮯᴏʍᴩrᴇssing...`",
             buttons=[
-                [Button.inline("STATS", data=f"stats{wah}")],
-                [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+                [Button.inline(⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
+                [Button.inline("⌜ ᏟᎪNᏟᎬᏞ ᏢᏒᏫᏟᎬᏚᏚ ⌟", data=f"skip{wah}")],
             ],
         )
         cmd = f'ffmpeg -i "{dl}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
@@ -87,7 +75,7 @@ async def encc(e):
         er = stderr.decode()
         try:
             if er:
-                await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+                await e.edit(str(er) + "\n\n**Ꭼrrᴏr**  Ꮲlᴇᴀsᴇ Ꮯᴏnᴛᴀᴄᴛ @AvBotz Ꭲᴏ Ꮪᴏluᴛiᴏn")
                 COUNT.remove(e.chat_id)
                 os.remove(dl)
                 return os.remove(out)
@@ -96,14 +84,14 @@ async def encc(e):
         ees = dt.now()
         ttt = time.time()
         await nn.delete()
-        nnn = await e.client.send_message(e.chat_id, "`Uploading...`")
+        nnn = await e.client.send_message(e.chat_id, "`uᴩlᴏᴀding...`")
         with open(out, "rb") as f:
             ok = await upload_file(
                      client=e.client,
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "uploading..")
+                         progress(d, t, nnn, ttt, "uᴩlᴏᴀding..")
                          ),
                      )
         ds = await e.client.send_file(
@@ -123,7 +111,7 @@ async def encc(e):
         a1 = await info(dl, e)
         a2 = await info(out, e)
         dk = await ds.reply(
-            f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1})//[After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+            f"Original Size : {hbs(org)}\nᏟᴏʍᴩrᴇssᴇd  Size : {hbs(com)}\nᏟᴏʍᴩrᴇssᴇd  Percentage : {per}\n\nMediainfo: [Before]({a1})//[After]({a2})\n\nᎠᴏwnlᴏᴀdᴇd in{x}\nᏟᴏʍᴩrᴇssᴇd Ꮖn {xx}\nᏌᴩlᴏᴀdᴇd in {xxx}",
             link_preview=False,
         )
         await ds.forward_to(LOG)
@@ -137,7 +125,7 @@ async def encc(e):
 
 
 async def sample(e):
-    wah = e.pattern_match.group(1).decode("UTF-8")
+    wah = e.pattern_match.group(1).decode("ᏌᎢᎰ - ８")
     wh = decode(wah)
     COUNT.append(e.chat_id)
     out, dl, thum, dtime = wh.split(";")
@@ -145,8 +133,8 @@ async def sample(e):
     xxx = await e.edit(
         "`Generating Sample...`",
         buttons=[
-            [Button.inline("STATS", data=f"stats{wah}")],
-            [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+            [Button.inline(⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
+            [Button.inline("⌜ ᏟᎪNᏟᎬᏞ ᏢᏒᏫᏟᎬᏚᏚ ⌟", data=f"skip{wah}")],
         ],
     )
     ncmd = f'ffmpeg -i "{dl}" -preset ultrafast -ss {ss} -to {dd} -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
@@ -157,7 +145,7 @@ async def sample(e):
     er = stderr.decode()
     try:
         if er:
-            await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+            await e.edit(str(er) + "\n\n**Ꭼrrᴏr** Ꮲlᴇᴀsᴇ Ꮯᴏnᴛᴀᴄᴛ @Avbotz Ꭲᴏ Ꮪᴏluᴛiᴏn")
             COUNT.remove(e.chat_id)
             os.remove(dl)
             os.remove(out)
@@ -173,14 +161,14 @@ async def sample(e):
             force_document=False,
             thumb=thum,
             progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                progress(d, t, xxx, ttt, "uploading..", file=f"{out}")
+                progress(d, t, xxx, ttt, "uᴩlᴏᴀding..", file=f"{out}")
             ),
             buttons=[
                 [
-                    Button.inline("SCREENSHOTS", data=f"sshot{wah}"),
-                    Button.inline("COMPRESS", data=f"sencc{wah}"),
+                    Button.inline("⌜ Ꮪᴄrᴇᴇnshᴏᴛs ⌟", data=f"sshot{wah}"),
+                    Button.inline("⌜ Ꮯᴏʍᴩrᴇss? ⌟", data=f"sencc{wah}"),
                 ],
-                [Button.inline("SKIP", data=f"skip{wah}")],
+                [Button.inline("⌜ Ꮪᴋiᴩ ⌟", data=f"skip{wah}")],
             ],
         )
         COUNT.remove(e.chat_id)
@@ -208,28 +196,28 @@ async def encod(event):
             oc = event.fwd_from.from_id.user_id
             occ = (await event.client.get_me()).id
             if oc == occ:
-                return await event.reply("`This Video File is already Compressed 😑😑.`")
+                return await event.reply("`Ꭲhis Ꮩidᴇᴏ Ꮀilᴇ is ᴀlrᴇᴀdy Ꮯᴏʍᴩrᴇssᴇd 😑😑.`")
         except BaseException:
             pass
-        xxx = await event.reply("`Downloading...`")
-        """ For Force Subscribe Channel"""
-        # pp = []
-        # async for x in event.client.iter_participants("put group username"):
-        #    pp.append(x.id)
-        # if (user.id) not in pp:
-        #    return await xxx.edit(
-        #        "U Must Subscribe This Channel To Use This Bot",
-        #       buttons=[Button.url("JOIN CHANNEL", url="put group link")],
-        #   )
+        xxx = await event.reply("`Ꭰᴏwnlᴏᴀding...`")
+        """Ꮀᴏr Ꮪuʙsᴄriʙᴇ Ꮻur Ꮯhᴀnnᴇl """
+         pp = []
+         async for x in event.client.iter_participants("@AVBotz"):
+            pp.append(x.id)
+         if (user.id) not in pp:
+            return await xxx.edit(
+                "Ꮜ Ꮇusᴛ Ꮪuʙsᴄriʙᴇ Ꭲhis Ꮯhᴀnnᴇl Ꭲᴏ Ꮜsᴇ Ꭲhis Ᏼᴏᴛ",
+               buttons=[Button.url("⌜ Ꭻᴏin Ꮯhᴀnnᴇl ⌟", url="https://t.me/AVBotz")],
+           )
         if len(COUNT) > 4 and user.id != OWNER:
             llink = (await event.client(cl(LOG))).link
             return await xxx.edit(
-                "Overload Already 5 Process Running",
+                "Ꮻvᴇrlᴏᴀd Ꭺlrᴇᴀdy  5 Ꮲrᴏᴄᴇss Ꮢunning",
                 buttons=[Button.url("Working Status", url=llink)],
             )
         if user.id in COUNT and user.id != OWNER:
             return await xxx.edit(
-                "Already Your 1 Request Processing\nKindly Wait For it to Finish"
+                "Ꭺlrᴇᴀdy Ꭹᴏur  1 Ꮢᴇquᴇsᴛ Ꮲrᴏᴄᴇssing\nᏦindly Ꮃᴀiᴛ Ꮀᴏr iᴛ ᴛᴏ Ꮀinish"
             )
         COUNT.append(user.id)
         s = dt.now()
@@ -238,7 +226,7 @@ async def encod(event):
         gg = await event.client.get_entity(user.id)
         name = f"[{get_display_name(gg)}](tg://user?id={user.id})"
         await event.client.send_message(
-            LOG, f"{len(COUNT)} Downloading Started for user - {name}"
+            LOG, f"{len(COUNT)} Ꭰᴏwnlᴏᴀding Ꮪᴛᴀrᴛᴇd fᴏr usᴇr - {name}"
         )
         dir = f"downloads/{user.id}/"
         if not os.path.isdir(dir):
@@ -264,7 +252,7 @@ async def encod(event):
                                 t,
                                 xxx,
                                 ttt,
-                                "Downloading",
+                                "Ꭰᴏwnlᴏᴀding",
                             )
                         ),
                     )
@@ -273,7 +261,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "Downloading")
+                        progress(d, t, xxx, ttt, "Ꭰᴏwnlᴏᴀding")
                     ),
                 )
         except Exception as er:
@@ -297,14 +285,14 @@ async def encod(event):
         COUNT.remove(user.id)
         await event.client.send_message(
             event.chat_id,
-            f"🐠DOWNLODING COMPLETED!!🐠",
+            f"ᎠᏫᎳNᏞᏫᎠᏆNᏀ ᏟᏫᎷᏢᏞᎬᎢᎬᎠ!!"
             buttons=[
                 [
-                    Button.inline("GENERATE SAMPLE", data=f"gsmpl{key}"),
-                    Button.inline("SCREENSHOTS", data=f"sshot{key}"),
+                    Button.inline("⌜ Ꮐᴇnᴇrᴀᴛᴇ Ꮪᴀʍᴩlᴇ ⌟", data=f"gsmpl{key}"),
+                    Button.inline("⌜ Ꮪᴄrᴇᴇnshᴏᴛs ⌟", data=f"sshot{key}"),
                 ],
-                [Button.url("MEDIAINFO", url=inf)],
-                [Button.inline("COMPRESS", data=f"sencc{key}")],
+                [Button.url("⌜ Ꮇᴇdiᴀinfᴏ ⌟", url=inf)],
+                [Button.inline("⌜ Ꮯᴏʍᴩrᴇss? ⌟", data=f"sencc{key}")],
             ],
         )
     except BaseException as er:
@@ -319,10 +307,10 @@ async def customenc(e, key):
     wh = decode(wah)
     out, dl, thum, dtime = wh.split(";")
     nn = await e.edit(
-        "`Compressing..`",
+        "`Ꮯᴏʍᴩrᴇssing...`",
         buttons=[
-            [Button.inline("STATS", data=f"stats{wah}")],
-            [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+            [Button.inline(⌜ Ꮪᴛᴀᴛus ⌟, data=f"stats{wah}")],
+            [Button.inline("⌜ ᏟᎪNᏟᎬᏞ ᏢᏒᏫᏟᎬᏚᏚ ⌟", data=f"skip{wah}")],
         ],
     )
     cmd = f'ffmpeg -i "{dl}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
@@ -333,7 +321,7 @@ async def customenc(e, key):
     er = stderr.decode()
     try:
         if er:
-            await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+            await e.edit(str(er) + "\n\n**Ꭼrrᴏr** Ꮲlᴇᴀsᴇ Ꮯᴏnᴛᴀᴄᴛ @AvBotz Ꭲᴏ Ꮪᴏluᴛiᴏn")
             COUNT.remove(e.chat_id)
             os.remove(dl)
             return os.remove(out)
@@ -343,7 +331,7 @@ async def customenc(e, key):
     ees = dt.now()
     ttt = time.time()
     await nn.delete()
-    nnn = await e.client.send_message(e.chat_id, "`Uploading...`")
+    nnn = await e.client.send_message(e.chat_id, "`uᴩlᴏᴀding...`")
     try:
         with open(out, "rb") as f:
             ok = await upload_file(
@@ -351,7 +339,7 @@ async def customenc(e, key):
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "uploading..")
+                         progress(d, t, nnn, ttt, "uᴩlᴏᴀding..")
                          ),
                      )
         ds = await e.client.send_file(
@@ -376,7 +364,7 @@ async def customenc(e, key):
     a1 = await info(dl, e)
     a2 = await info(out, e)
     dk = await ds.reply(
-        f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1})//[After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+        f"Ꮻriginᴀl Ꮪizᴇ : {hbs(org)}\nᏟᴏʍᴩrᴇssᴇd  Ꮪizᴇ : {hbs(com)}\nᏟᴏʍᴩrᴇssᴇd  Ꮲᴇrᴄᴇnᴛᴀgᴇ : {per}\n\Ꮇᴇdiᴀinfᴏ: [Ᏼᴇfᴏrᴇ]({a1})//[Ꭺfᴛᴇr]({a2})\n\nᎠᴏwnlᴏᴀdᴇd in{x}\nᏟᴏʍᴩrᴇssᴇd Ꮖn {xx}\nᏌᴩlᴏᴀdᴇd Ꮖn {xxx}",
         link_preview=False,
     )
     await ds.forward_to(LOG)
