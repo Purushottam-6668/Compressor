@@ -200,15 +200,15 @@ async def encod(event):
         except BaseException:
             pass
         xxx = await event.reply("`Ꭰᴏwnlᴏᴀding...`")
-        """Ꮀᴏr Ꮪuʙsᴄriʙᴇ Ꮻur Ꮯhᴀnnᴇl """
-         pp = []
-         async for x in event.client.iter_participants("@AVBotz"):
-            pp.append(x.id)
-         if (user.id) not in pp:
-            return await xxx.edit(
-                "Ꮜ Ꮇusᴛ Ꮪuʙsᴄriʙᴇ Ꭲhis Ꮯhᴀnnᴇl Ꭲᴏ Ꮜsᴇ Ꭲhis Ᏼᴏᴛ",
-               buttons=[Button.url("⌜ Ꭻᴏin Ꮯhᴀnnᴇl ⌟", url="https://t.me/AVBotz")],
-           )
+      #  """Ꮀᴏr Ꮪuʙsᴄriʙᴇ Ꮻur Ꮯhᴀnnᴇl """
+      #   pp = []
+       #  async for x in event.client.iter_participants("@AVBotz"):
+        #    pp.append(x.id)
+         #if (user.id) not in pp:
+          #  return await xxx.edit(
+          #      "Ꮜ Ꮇusᴛ Ꮪuʙsᴄriʙᴇ Ꭲhis Ꮯhᴀnnᴇl Ꭲᴏ Ꮜsᴇ Ꭲhis Ᏼᴏᴛ",
+        #       buttons=[Button.url("⌜ Ꭻᴏin Ꮯhᴀnnᴇl ⌟", url="https://t.me/AVBotz")],
+      #     )
         if len(COUNT) > 4 and user.id != OWNER:
             llink = (await event.client(cl(LOG))).link
             return await xxx.edit(
